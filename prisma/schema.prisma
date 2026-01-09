@@ -16,12 +16,20 @@ datasource db {
 
 model Ecobarrio{
   id  Int @id @default(autoincrement())
-  nombre String
-  comuna String
-  descripcion String?
-  nombre_contacto?
-  telefono_contacto?
+  nombre  String
+  comuna  String
+  descripcion   String?
+  nombre_contacto   String?
+  telefono_contacto   String?
   lat    Int
   lon    Int
-  desafios Desafio[]
+  desafios  Desafio[]
+}
+
+model Desafio{
+  id Int @id @default(autoincrement())
+  desafio_particular  String
+  tema_interes  String
+  ecobarrioId   Int
+  ecobarrio   Ecobarrio @relation(fields: [ecobarrioId], references: [id])
 }
