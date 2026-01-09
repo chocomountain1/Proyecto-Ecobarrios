@@ -32,4 +32,12 @@ model Desafio{
   tema_interes  String
   ecobarrioId   Int
   ecobarrio   Ecobarrio @relation(fields: [ecobarrioId], references: [id])
+  problemas   Problema[]
+}
+
+model Problema{
+  id  Int @id @default(autoincrement())
+  usuarios  String
+  descripcion   String
+  
 }
