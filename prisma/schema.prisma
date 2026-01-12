@@ -63,6 +63,7 @@ model ODS{
 
   problemas   Problema[]
   desafios    Desafio[]
+  secciones   Seccion[]
 }
 
 model Sustentabilidad{
@@ -84,6 +85,8 @@ model Equipo_desarrollador{
   nombre    String
   problemaId Int @unique
   problema   Problema @relation(fields: [problemaId], references: [id])
+  seccionId  Int @unique
+  seccion    Seccion @relation(fields: [seccionId], references: [id])
   estudiantes   Estudiante[]
 }
 
@@ -92,4 +95,32 @@ model Estudiante{
   nombre  String
   equipo_desarrolladorId  Int @unique
   equipo_desarrollador Equipo_desarrollador @relation(fields: [equipo_desarrolladorId], references: [id])
+}
+
+model Seccion{
+  id  Int @id @default(autoincrement())
+  numero              Int
+  titulo              String
+  desafio_principal   String
+  profesor_a_cargo    String
+  año                 Int
+  equipos             Equipo_desarrollador[]
+  rutas               Ruta_tematica[]
+  ods                 ODS[]
+}
+
+model Ruta_tematica{
+  id    Int @id @default(autoincrement())
+  ruta_tematica         String
+  departamentos         String
+  centros               String
+  cursos_relacionados   String
+  secciones             Seccion[]
+}
+
+model Curso{
+  id    Int @id @default(autoincrement())
+  nombre        String
+  codigo        String 
+  impartido_en  String
 }
