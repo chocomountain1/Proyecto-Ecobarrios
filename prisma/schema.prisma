@@ -11,7 +11,6 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url = env("DATABASE_URL)
 }
 
 model Ecobarrio{
@@ -38,12 +37,13 @@ model Desafio{
 
 model Problema{
   id  Int @id @default(autoincrement())
-  usuarios  String?
-  clientes  String?
-  descripcion   String?
-  desafioId   Int
-  desafio   Desafio @relation(fields: [desafioId], references: [id])
-  ods         ODS[]
+  usuarios          String?
+  clientes          String?
+  descripcion       String?
+  desafioId         Int
+  desafio           Desafio @relation(fields: [desafioId], references: [id])
+  solucion          Solucion[]
+  ods               ODS[]
   equipos_desarrolladores   Equipo_desarrollador[]
 }
 
@@ -56,6 +56,7 @@ model Solucion{
   SRL                 Int?
   problemaId          Int @unique
   problema            Problema @relation(fields: [problemaId], references: [id])
+  sustentabilidad     Sustentabilidad[]
 }
 
 model ODS{
@@ -65,6 +66,7 @@ model ODS{
   problemas   Problema[]
   desafios    Desafio[]
   secciones   Seccion[]
+  sustentabilidad   Sustentabilidad[]
 }
 
 model Sustentabilidad{
