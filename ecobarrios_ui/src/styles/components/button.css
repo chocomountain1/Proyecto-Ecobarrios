@@ -1,6 +1,6 @@
 .btn {
   padding: 0.5rem 1.2rem;
-  border-radius: 0.25rem;
+  border-radius: 0.90rem;
   border: none;
   background: #323438; /* tono gris por defecto */
   color: #beb9b9; /* texto oscuro por defecto */
@@ -15,7 +15,7 @@
 .btn:active,
 .btn[aria-pressed="true"],
 .btn.selected {
-  background: #6b7280; /* gris más brillante al interactuar */
+  background: #484b50; /* gris más brillante al interactuar */
   color: #ffffff; /* letras más blancas */
   opacity: 1;
 }
