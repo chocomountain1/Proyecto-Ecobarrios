@@ -1,14 +1,21 @@
 .btn {
   padding: 0.5rem 1.2rem;
-  border-radius: var(--radius);
+  border-radius: 0.25rem;
   border: none;
-  background: var(--color-accent);
-  color: #000;
+  background: #323438; /* tono gris por defecto */
+  color: #beb9b9; /* texto oscuro por defecto */
   font-weight: 600;
   cursor: pointer;
-  transition: 0.2s;
+  transition: background-color 0.15s ease, color 0.15s ease, opacity 0.2s;
 }
 
-.btn:hover {
-  opacity: 0.85;
+/* estados hover / focus / selected: letra más blanca y gris más brillante */
+.btn:hover,
+.btn:focus,
+.btn:active,
+.btn[aria-pressed="true"],
+.btn.selected {
+  background: #6b7280; /* gris más brillante al interactuar */
+  color: #ffffff; /* letras más blancas */
+  opacity: 1;
 }

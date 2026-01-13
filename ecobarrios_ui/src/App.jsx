@@ -1,7 +1,7 @@
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-
+import './styles/components/button.css'  // importación de estilos para botones personalizados
 function App() {
   return (
     <>
@@ -16,6 +16,7 @@ function App() {
       <h1>Vite + React</h1>
       <div className="card">
         <button className= "btn">
+          Hola
         </button>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
