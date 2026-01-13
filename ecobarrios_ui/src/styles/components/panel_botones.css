@@ -5,5 +5,4 @@
   padding: 0.2rem;
   border-radius: 0.90rem;
   background: #323438;
-  flex-wrap: wrap; /* permite saltos de línea si hay muchos botones */
 }

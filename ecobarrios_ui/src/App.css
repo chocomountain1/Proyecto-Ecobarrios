@@ -37,6 +37,28 @@
   padding: 2em;
 }
 
+
+.cabecera{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 1rem;
+  background-color: rgb(24, 23, 23);
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+/* evita que el contenido quede oculto debajo de la cabecera */
+#root {
+  padding-top: calc(2rem + 64px);
+}
+
+
 .read-the-docs {
   color: #888;
 }

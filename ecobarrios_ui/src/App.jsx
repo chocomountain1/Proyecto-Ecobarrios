@@ -15,11 +15,10 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
-      <div className="card">
+      <div className="cabecera">
+        <h1>Ecobarrios</h1>
+        <div style={{width: '18rem'}}></div> {/* Espaciador */}
         <Panel_botones array_textos={["Explorar", "Análisis", "Datos", "Reportes"]} />
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
