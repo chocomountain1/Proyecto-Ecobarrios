@@ -1,9 +1,9 @@
-import '../styles/components/sidebar-header.css';
-import '../styles/components/sidebar.css';
-import '../styles/components/filter-section.css';
-import '../styles/components/filter-header.css';
-import '../styles/components/filter-header-text.css';
-import '../styles/components/filter-divider.css';
+import '../styles/components/sidebar/sidebar-header.css';
+import '../styles/components/sidebar/sidebar.css';
+import '../styles/components/sidebar/filter-section.css';
+import '../styles/components/sidebar/filter-header.css';
+import '../styles/components/sidebar/filter-header-text.css';
+import '../styles/components/sidebar/filter-divider.css';
 import React from 'react';
 import OdsSelect from './ods_select';
 import Switch from './switch';

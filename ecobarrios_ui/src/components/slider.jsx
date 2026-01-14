@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/components/slider.css';
+import '../styles/components/elements/slider.css';
 
 export default function Slider({ label, min = 0, max = 10, step = 1, onChange }) {
   const [value, setValue] = useState(min);

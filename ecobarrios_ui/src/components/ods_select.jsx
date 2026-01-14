@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import '../styles/components/ods_select.css';
+import '../styles/components/elements/ods_select.css';
 
 export default function OdsSelect() {
   const [selectedOds, setSelectedOds] = useState([]);

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/components/ods_buttons.css';
+import '../styles/components/elements/ods_buttons.css';
 
 export default function Ods_button({ number_ods, text }) {
   return (

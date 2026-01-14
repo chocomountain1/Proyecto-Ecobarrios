@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/components/switch.css';
+import '../styles/components/elements/switch.css';
 
 export default function Switch({ label, checked = false, onChange }) {
   const [isChecked, setIsChecked] = useState(checked);

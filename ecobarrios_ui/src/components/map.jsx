@@ -1,5 +1,5 @@
 import 'leaflet/dist/leaflet.css';
-import '../styles/components/map.css';
+import '../styles/components/elements/map.css';
 import React, { useEffect } from 'react';
 import L from 'leaflet';
 import Sidebar from './sidebar';
