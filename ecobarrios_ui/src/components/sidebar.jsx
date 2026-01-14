@@ -6,6 +6,8 @@ import '../styles/components/filter-header-text.css';
 import '../styles/components/filter-divider.css';
 import React from 'react';
 import OdsSelect from './ods_select';
+import Switch from './switch';
+import Slider from './slider';
 
 export default function Sidebar() {
   return (
@@ -15,16 +17,16 @@ export default function Sidebar() {
       </div>
       <div className="filter-section">
         <div className="filter-header">
-          <p className ="filter-header-text">Mostrar por ods específico</p>
+          <p className ="filter-header-text">Mostrar ecobarrios por ods específico</p>
         </div>
         <OdsSelect />
       </div>
       <div className="filter-divider"></div>
       <div className="filter-section">
         <div className="filter-header">
-          <p className="filter-header-text">Mostrar solo ecobarrios con proyectos</p>
+          <p className ="filter-header-text">Mostrar ecobarrios por cantidad de proyectos</p>
         </div>
-        <div className="filter-divider"></div>
+        <Slider min={0} max={6} step={1} />
       </div>
     </div>
   );
