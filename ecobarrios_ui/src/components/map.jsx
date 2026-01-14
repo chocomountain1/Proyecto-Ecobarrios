@@ -2,6 +2,7 @@ import 'leaflet/dist/leaflet.css';
 import '../styles/components/map.css';
 import React, { useEffect } from 'react';
 import L from 'leaflet';
+import Sidebar from './sidebar';
 
 export default function Map() {
   useEffect(() => {
@@ -25,9 +26,8 @@ export default function Map() {
       <div className="map-area">
         <div id="leaflet-map" className="leaflet-map" />
       </div>
-
       <div className="sidebar-space" aria-hidden="true">
-        {}
+        {<Sidebar />}
       </div>
     </div>
   );

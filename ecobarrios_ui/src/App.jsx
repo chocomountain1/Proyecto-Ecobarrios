@@ -9,7 +9,7 @@ function App() {
         <div style={{width: '18rem'}}></div> {/* Espaciador */}
         <Panel_botones array_textos={["Explorar", "Análisis", "Datos", "Reportes"]} />
       </div>
-      <Map />  {/* uso del componente Map */}
+      <Map />
     </>
   )
 }
