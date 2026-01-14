@@ -2,40 +2,49 @@ import '../styles/components/sidebar-header.css';
 import '../styles/components/sidebar.css';
 import '../styles/components/filter-section.css';
 import '../styles/components/filter-header.css';
-import React from 'react';
-import Ods_button from './ods_button';
-import '../styles/components/ods-button-container.css';
+import '../styles/components/ods_select.css';
+import React, { useState } from 'react';
 
 export default function Sidebar() {
+  const [selectedOds, setSelectedOds] = useState('');
+
+  const odsOptions = [
+    { id: 1, name: 'Pobreza cero' },
+    { id: 2, name: 'Hambre cero' },
+    { id: 3, name: 'Salud y bienestar' },
+    { id: 4, name: 'Educación de calidad' },
+    { id: 5, name: 'Igualdad de género' },
+    { id: 6, name: 'Agua limpia y saneamiento' },
+    { id: 7, name: 'Energía asequible y no contaminante' },
+    { id: 8, name: 'Trabajo decente y crecimiento económico' },
+    { id: 9, name: 'Industria, innovación e infraestructura' },
+    { id: 10, name: 'Reducción de las desigualdades' },
+    { id: 11, name: 'Ciudades y comunidades sostenibles' },
+    { id: 12, name: 'Producción y consumo responsables' },
+    { id: 13, name: 'Acción por el clima' },
+    { id: 14, name: 'Vida submarina' },
+    { id: 15, name: 'Vida de ecosistemas terrestres' },
+    { id: 16, name: 'Paz, justicia e instituciones sólidas' },
+    { id: 17, name: 'Alianzas para lograr los objetivos' },
+  ];
+
   return (
     <div className="sidebar">
       <div className="sidebar-header">
-      <h2>Filtros</h2>
+        <h2>Filtros</h2>
       </div>
       <div className="filter-section">
         <div className="filter-header">
-          <input type="checkbox" name="ods1" />
           <p>Mostrar por ods específico</p>
         </div>
-        <div className="ods-button-container">
-          <Ods_button number_ods={1} text={"Pobreza cero"} />
-          <Ods_button number_ods={2} text={"Hambre cero"} />
-          <Ods_button number_ods={3} text={"Salud y bienestar"} />
-          <Ods_button number_ods={4} text={"Educación de calidad"} />
-          <Ods_button number_ods={5} text={"Igualdad de género"} />
-          <Ods_button number_ods={6} text={"Agua limpia y saneamiento"} />
-          <Ods_button number_ods={7} text={"Energía asequible y no contaminante"} />
-          <Ods_button number_ods={8} text={"Trabajo decente y crecimiento económico"} />
-          <Ods_button number_ods={9} text={"Industria, innovación e infraestructura"} />
-          <Ods_button number_ods={10} text={"Reducción de las desigualdades"} />
-          <Ods_button number_ods={11} text={"Ciudades y comunidades sostenibles"} />
-          <Ods_button number_ods={12} text={"Producción y consumo responsables"} />
-          <Ods_button number_ods={13} text={"Acción por el clima"} />
-          <Ods_button number_ods={14} text={"Vida submarina"} />
-          <Ods_button number_ods={15} text={"Vida de ecosistemas terrestres"} />
-          <Ods_button number_ods={16} text={"Paz, justicia e instituciones sólidas"} />
-          <Ods_button number_ods={17} text={"Alianzas para lograr los objetivos"} />
-        </div>
+        <select className = "ods-select" value={selectedOds} onChange={(e) => setSelectedOds(e.target.value)}>
+          <option value="">Selecciona un ODS</option>
+          {odsOptions.map((ods) => (
+            <option key={ods.id} value={ods.id}>
+              {ods.id}. {ods.name}
+            </option>
+          ))}
+        </select>
       </div>
     </div>
   );
