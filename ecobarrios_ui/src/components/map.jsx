@@ -1,10 +1,10 @@
 import 'leaflet/dist/leaflet.css';
 import '../styles/components/elements/map.css';
-import React, { useEffect } from 'react';
+import React, { useEffect} from 'react';
 import L from 'leaflet';
 import Sidebar from './sidebar';
 
-export default function Map() {
+export default function Map({ ecobarrios }) {
   useEffect(() => {
     const el = document.getElementById('leaflet-map');
     if (!el) return;
@@ -17,9 +17,11 @@ export default function Map() {
 
     // forzar recalculo de tamaños para evitar tiles "desordenados"
     setTimeout(() => map.invalidateSize(), 0);
-
+    ecobarrios.forEach(e => {
+      L.marker([e.lat, e.lon]).addTo(map);
+    });
     return () => map.remove();
-  }, []);
+  }, [ecobarrios]);
 
   return (
     <div className="map-container">
