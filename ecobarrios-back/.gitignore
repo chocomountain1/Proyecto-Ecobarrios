@@ -2,3 +2,6 @@
 .env
 /src/generated/prisma
 /prisma/schema.prisma
+/prisma/migrations
+/prisma/seed.js
+/prisma/data.csv

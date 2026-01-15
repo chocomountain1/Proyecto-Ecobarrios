@@ -1,17 +1,9 @@
-require('dotenv').config();
-
-const express = require('express');
+import express from "express";
+import { getEcobarrios } from "./controllers/ecobarrioController.js";
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+app.use(express.json());
 
-// servir carpeta public
-app.use(express.static('public'));
+app.get("/api/ecobarrios", getEcobarrios); // ruta api ecobarrios
 
-app.get('/api', (req, res) => {
-  res.json({ message: 'API Ecobarrios operativa' });
-});
-
-app.listen(PORT, () => {
-  console.log(`Servidor escuchando en http://localhost:${PORT}`);
-});
+app.listen(3000, () => console.log("API funcionando en :3000"));
