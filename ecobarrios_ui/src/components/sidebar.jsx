@@ -10,6 +10,7 @@ import Switch from './switch';
 import Slider from './slider';
 
 export default function Sidebar() {
+  const [switchChecked, setSwitchChecked] = React.useState(false);
   return (
     <div className="sidebar">
       <div className="sidebar-header">
@@ -25,8 +26,9 @@ export default function Sidebar() {
       <div className="filter-section">
         <div className="filter-header">
           <p className ="filter-header-text">Mostrar ecobarrios por cantidad de proyectos</p>
+          <Switch checked = {switchChecked} onChange={() => setSwitchChecked(!switchChecked)} />
         </div>
-        <Slider min={0} max={6} step={1} />
+        {switchChecked && <Slider min={0} max={6} step={1} />}
       </div>
     </div>
   );
