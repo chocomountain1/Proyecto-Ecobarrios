@@ -1,8 +1,11 @@
 import L from "leaflet";
 import "leaflet.awesome-markers";
 
-export const greenMarker = L.AwesomeMarkers.icon({
+const myMarker = (color) =>
+  L.AwesomeMarkers.icon({
   icon: "users",
-  markerColor: "green",   // red, blue, orange, green, purple, darkred, cadetblue
+  markerColor: color,   // red, blue, orange, green, purple, darkred, cadetblue
   prefix: "fa",           // usa FontAwesome
 });
+
+export default myMarker;

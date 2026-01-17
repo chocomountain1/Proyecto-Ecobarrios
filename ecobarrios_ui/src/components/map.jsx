@@ -3,15 +3,20 @@ import '../styles/components/elements/map.css';
 import "leaflet.awesome-markers/dist/leaflet.awesome-markers.css"; //markers personalizados
 import "@fortawesome/fontawesome-free/css/all.css"; //fuentes en los markers personalizados
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { greenMarker } from './icons/markers';
-import L from 'leaflet';
+import myMarker from './icons/markers';
 import Sidebar from './sidebar';
+// Diccionario para desambiguar el estado de consolidación de los ecobarrios
+const consolidationStatus = {
+  "No participó en Sendero Ecobarrio" : "white",
+  "Semilla" : "yellow",
+  "En consolidación" : "orange",
+  "Consolidado" : "green"
+}
 
 export default function Map({ ecobarrios }) {
   console.log(ecobarrios)
   console.log(ecobarrios[0]);
   console.log(typeof ecobarrios[0]?.lat);
-  // Crear el mapa solo una vez
   return (
     <div className="map-container">
       <div className="map-area">
@@ -21,7 +26,7 @@ export default function Map({ ecobarrios }) {
             attribution='&copy; OpenStreetMap contributors &copy; CARTO'
           ></TileLayer>;
           {ecobarrios.map((e) => (
-            <Marker icon={greenMarker} position={[e.lat/1e14, e.lon/1e14]} key={e.id}>
+            <Marker icon= {myMarker(consolidationStatus[e.sendero_ecobarrio])} position={[e.lat/1e14, e.lon/1e14]} key={e.id}>
               <Popup>
                 <div>
                   <h3>{e.nombre}</h3>
