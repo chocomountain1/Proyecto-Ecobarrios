@@ -16,7 +16,7 @@ function App() {
       <div className="cabecera">
         <h1>Ecobarrios</h1>
         <div style={{width: '18rem'}}></div> {/* Espaciador */}
-        <Panel_botones array_textos={["Explorar", "Análisis", "Datos", "Reportes"]} />
+        <Panel_botones array_textos={["Explorar", "Afinidad", "Datos", "Reportes"]} />
       </div>
       <Map ecobarrios = {ecobarrios} />
     </>
