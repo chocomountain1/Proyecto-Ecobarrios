@@ -3,6 +3,7 @@ import '../styles/components/elements/map.css';
 import "leaflet.awesome-markers/dist/leaflet.awesome-markers.css"; //markers personalizados
 import "@fortawesome/fontawesome-free/css/all.css"; //fuentes en los markers personalizados
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import MarkerClusterGroup from 'react-leaflet-markercluster';
 import myMarker from './icons/markers';
 import Sidebar from './sidebar';
 
@@ -25,7 +26,9 @@ export default function Map({ ecobarrios }) {
             url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
             attribution='&copy; OpenStreetMap contributors &copy; CARTO'
           ></TileLayer>;
+
           {ecobarrios.map((e) => (
+            <MarkerClusterGroup>
             <Marker icon= {myMarker(consolidationStatus[e.sendero_ecobarrio])} position={[e.lat, e.lon]} key={e.id}>
               <Popup>
                 <div>
@@ -33,6 +36,7 @@ export default function Map({ ecobarrios }) {
                 </div>
               </Popup>
             </Marker>
+            </MarkerClusterGroup>
           ))}
         </MapContainer>
         </div>
