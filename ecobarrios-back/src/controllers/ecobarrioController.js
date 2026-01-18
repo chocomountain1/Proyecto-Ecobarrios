@@ -1,4 +1,4 @@
-const prisma = require("../../lib/prisma");
+import prisma from "../../lib/prisma.js";
 
 const getEcobarrios = async (req, res) => {
   try {
@@ -22,4 +22,4 @@ const getEcobarrios = async (req, res) => {
   }
 };
 
-module.exports = { getEcobarrios };
+export default getEcobarrios;

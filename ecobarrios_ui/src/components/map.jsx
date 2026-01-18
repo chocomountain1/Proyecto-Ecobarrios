@@ -5,6 +5,7 @@ import "@fortawesome/fontawesome-free/css/all.css"; //fuentes en los markers per
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import myMarker from './icons/markers';
 import Sidebar from './sidebar';
+
 // Diccionario para desambiguar el estado de consolidación de los ecobarrios
 const consolidationStatus = {
   "No participó en Sendero Ecobarrio" : "white",

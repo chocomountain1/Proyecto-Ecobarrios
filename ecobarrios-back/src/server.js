@@ -1,11 +1,10 @@
-const express = require("express");
-const cors = require("cors");
-const { getEcobarrios } = require("./controllers/ecobarrioController");
+import express  from "express";
+import cors from "cors";
+import getEcobarrios  from "./controllers/ecobarrioController.js";
 
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.use(express.json());
 
 app.get("/api/ecobarrios", getEcobarrios); // ruta api ecobarrios
 
