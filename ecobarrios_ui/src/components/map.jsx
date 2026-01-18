@@ -8,16 +8,15 @@ import Sidebar from './sidebar';
 
 // Diccionario para desambiguar el estado de consolidación de los ecobarrios
 const consolidationStatus = {
-  "No participó en Sendero Ecobarrio" : "white",
-  "Semilla" : "yellow",
-  "En consolidación" : "orange",
-  "Consolidado" : "green"
+  "No participó en Sendero Ecobarrio" : "gray",
+  "Semilla" : "green",
+  "En Consolidación" : "orange",
+  "Referente" : "red"
 }
 
 export default function Map({ ecobarrios }) {
   console.log(ecobarrios)
   console.log(ecobarrios[0]);
-  console.log(typeof ecobarrios[0]?.lat);
   return (
     <div className="map-container">
       <div className="map-area">
@@ -27,7 +26,7 @@ export default function Map({ ecobarrios }) {
             attribution='&copy; OpenStreetMap contributors &copy; CARTO'
           ></TileLayer>;
           {ecobarrios.map((e) => (
-            <Marker icon= {myMarker(consolidationStatus[e.sendero_ecobarrio])} position={[e.lat/1e14, e.lon/1e14]} key={e.id}>
+            <Marker icon= {myMarker(consolidationStatus[e.sendero_ecobarrio])} position={[e.lat, e.lon]} key={e.id}>
               <Popup>
                 <div>
                   <h3>{e.nombre}</h3>

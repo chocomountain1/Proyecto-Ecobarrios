@@ -8,6 +8,7 @@ const getEcobarrios = async (req, res) => {
         comuna: true,
         lat: true,
         lon: true,
+        maps: true,
         nombre_contacto: true,
         telefono_contacto: true,
         correo_contacto: true,
