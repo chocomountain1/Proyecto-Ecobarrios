@@ -1,0 +1,21 @@
+.modal-h1-text {
+    font-size: 32px;
+    font-weight: 700;
+    color: #333333;
+    font-family: 'Inter', sans-serif;
+}
+
+.modal-h2-text {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333333;
+    font-family: 'Inter', sans-serif;
+}
+
+.modal-p-text {
+    padding-bottom: 2%;
+    font-size: 16px;
+    font-weight: 400;
+    color: #666666;
+    font-family: 'Inter', sans-serif;
+}
