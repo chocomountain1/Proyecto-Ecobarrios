@@ -34,6 +34,12 @@ export default function Map({ ecobarrios }) {
                   <p className = "modal-p-text">{selectedMarker.e.linea_de_accion}</p>
               </div>
             </div>
+            <div className = "modal-section-title">
+              <h2 className = "modal-h2-text">Proyectos abordados</h2>
+              <div className = "modal-section-content">
+                  <p className = "modal-p-text"><em>🗂️ ¡No hay proyectos abordados en este ecobarrio aún! </em></p>
+              </div>
+            </div>
           </div>
         </Modal>
         )}
