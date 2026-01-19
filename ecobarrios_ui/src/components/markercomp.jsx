@@ -13,7 +13,9 @@ const consolidationStatus = {
 
 function MarkerComp({ e, onSelect}){
     return(
-        <Marker icon= {myMarker(consolidationStatus[e.sendero_ecobarrio])} position={[e.lat, e.lon]} key={e.id} eventHandlers={{click: () => onSelect({e})}}>
+        <Marker icon= {myMarker(consolidationStatus[e.sendero_ecobarrio])} position={[e.lat, e.lon]} key={e.id} eventHandlers={{click: () => onSelect({e}),
+        mouseover: (e) => e.target.openPopup(),
+        mouseout: (e) => e.target.closePopup(),}}>
                       <Popup>
                         <div>
                           <h3>{e.nombre}</h3>
