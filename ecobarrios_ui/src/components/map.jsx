@@ -28,6 +28,12 @@ export default function Map({ ecobarrios }) {
                 <p className = "modal-p-text">📞<strong>Teléfono:</strong> {selectedMarker.e.telefono_contacto}</p>
                 <p className = "modal-p-text">📧<strong>Correo electrónico:</strong> {selectedMarker.e.correo_contacto}</p>
             </div>
+            <div className = "modal-section-title">
+              <h2 className = "modal-h2-text">Línea de Acción</h2>
+              <div className = "modal-section-content">
+                  <p className = "modal-p-text">{selectedMarker.e.linea_de_accion}</p>
+              </div>
+            </div>
           </div>
         </Modal>
         )}
