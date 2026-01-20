@@ -4,4 +4,6 @@
 /prisma/schema.prisma
 /prisma/migrations
 /prisma/seed.js
+/prisma/desafio_seed.js
+/prisma/ecobarrio_seed.js
 /prisma/data.csv
