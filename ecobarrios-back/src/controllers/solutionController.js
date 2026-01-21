@@ -2,25 +2,28 @@ import prisma from "../../lib/prisma.js";
 
 const getSolutionsByEcobarrio = async (req, res) => {
   try {
-    const id = Number(req.params.id);
-
+    
+    const id = req.params.id;
+    console.log("Fetching solutions for Ecobarrio ID:", id);
     const solutions = await prisma.Solucion.findMany({
-        select: {
-          propuesta_solucion: true,
-          nombre_proyecto: true,
-        },
-        where: {
-          problema: {           //puedo acceder directamente a las relaciones por prisma
-            desafio: {
-              ecobarrio: {
-                id: id
-              }
-            }
-          }
+  where: {
+    problema: {
+      desafio: {
+        ecobarrio:{
+          id: Number(id)
         }
-      });
-
+      }
+    }
+  },
+  select: {
+    id: true,
+    propuesta_solucion: true,
+    nombre_proyecto: true
+  }
+})
+    
     res.json(solutions);
+    console.log("Solutions fetched:", solutions);
   } catch (error) {
     res.status(500).json({ error: "Error obteniendo soluciones" });
   }

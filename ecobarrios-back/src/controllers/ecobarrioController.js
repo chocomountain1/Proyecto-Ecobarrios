@@ -4,6 +4,7 @@ const getEcobarrios = async (req, res) => {
   try {
     const ecobarrios = await prisma.ecobarrio.findMany({
       select: {
+        id: true,
         nombre: true,
         comuna: true,
         lat: true,
@@ -14,7 +15,7 @@ const getEcobarrios = async (req, res) => {
         correo_contacto: true,
         linea_de_accion: true,
         sendero_ecobarrio: true
-      }
+      },
     });
 
     res.json(ecobarrios);

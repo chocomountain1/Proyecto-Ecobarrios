@@ -1,6 +1,7 @@
 import express  from "express";
 import cors from "cors";
 import getEcobarrios  from "./controllers/ecobarrioController.js";
+import getSolutionsByEcobarrio from "./controllers/solutionController.js";
 
 const app = express();
 app.use(express.json());

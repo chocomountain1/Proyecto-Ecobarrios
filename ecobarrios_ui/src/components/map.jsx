@@ -9,11 +9,22 @@ import MarkerComp from './markerComp';
 import Modal from './Modal';
 import React from 'react';
 import Sidebar from './sidebar';
+import { useEffect } from 'react';
+import Proyect from './proyects';
 
 export default function Map({ ecobarrios }) {
   console.log(ecobarrios)
   console.log(ecobarrios[0]);
   const [selectedMarker, setSelectedMarker] = React.useState(null);
+  const [solutions, setSolutions] = React.useState([]);
+  useEffect(() => {
+    if (!selectedMarker) return;
+
+    fetch(`http://localhost:3000/api/ecobarrios/${selectedMarker.e.id}/solutions`)
+      .then((res) => res.json())
+      .then(data => setSolutions(data))
+      .catch((error) => console.error('Error fetching solutions:', error));
+  }, [selectedMarker]);
   return (
     <div className="map-container">
         {selectedMarker && (
@@ -36,9 +47,7 @@ export default function Map({ ecobarrios }) {
             </div>
             <div className = "modal-section-title">
               <h2 className = "modal-h2-text">Proyectos abordados</h2>
-              <div className = "modal-section-content">
-                  <p className = "modal-p-text"><em>🗂️ ¡No hay proyectos abordados en este ecobarrio aún! </em></p>
-              </div>
+                <Proyect solutions={solutions}/>
             </div>
           </div>
         </Modal>
