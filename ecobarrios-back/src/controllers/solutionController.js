@@ -17,7 +17,10 @@ const getSolutionsBySolution = async (req, res) => {
   select: {
     id: true,
     propuesta_solucion: true,
-    nombre_proyecto: true
+    nombre_proyecto: true,
+    TRL:true,
+    grado_innovacion:true,
+    SRL:true
   }
 })
     
