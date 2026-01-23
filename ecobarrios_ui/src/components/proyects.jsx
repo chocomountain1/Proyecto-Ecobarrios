@@ -5,7 +5,7 @@ import SolutionModal from "./solution_modal";
 
 export default function Proyect({ solutions}){
     const [open, setOpen] = useState(false);
-
+    
     console.log(solutions);
     if(!solutions || solutions.length === 0){
         return(
@@ -24,10 +24,7 @@ export default function Proyect({ solutions}){
                         <div className = "modal-proyect-title" onClick={() => setOpen(true)}>
                         <h3 className = "modal-h3-text" style = {{ textDecoration: "underline"}}><strong>{solution.nombre_proyecto}</strong></h3>
                         </div>
-                        <SolutionModal isOpen={open} onClose={() => setOpen(false)}>
-                            <div className='modal-name'>
-                                <h1 className='modal-h1-text'>{solution.nombre_proyecto}</h1>
-                            </div>
+                        <SolutionModal isOpen={open} onClose={() => setOpen(false) } solution = {solution}>
                             <div className='modal-section-title'>
                                 <h2 className = "modal-h2-text">Propuesta de solución</h2>
                                 <div className = "modal-section-content">

@@ -1,6 +1,6 @@
 import prisma from "../../lib/prisma.js";
 
-const getSolutionsByEcobarrio = async (req, res) => {
+const getSolutionsBySolution = async (req, res) => {
   try {
     
     const id = req.params.id;
@@ -22,10 +22,9 @@ const getSolutionsByEcobarrio = async (req, res) => {
 })
     
     res.json(solutions);
-    console.log("Solutions fetched:", solutions);
   } catch (error) {
     res.status(500).json({ error: "Error obteniendo soluciones" });
   }
 };
 
-export default getSolutionsByEcobarrio;
+export default getSolutionsBySolution;
