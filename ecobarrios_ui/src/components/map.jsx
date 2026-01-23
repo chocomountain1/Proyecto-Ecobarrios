@@ -6,7 +6,7 @@ import "@fortawesome/fontawesome-free/css/all.css"; //fuentes en los markers per
 import { MapContainer, TileLayer } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import MarkerComp from './markerComp';
-import Modal from './Modal';
+import Modal from './modal';
 import React from 'react';
 import Sidebar from './sidebar';
 import { useEffect } from 'react';
