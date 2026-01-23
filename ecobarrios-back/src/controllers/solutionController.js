@@ -4,7 +4,6 @@ const getSolutionsByEcobarrio = async (req, res) => {
   try {
     
     const id = req.params.id;
-    console.log("Fetching solutions for Ecobarrio ID:", id);
     const solutions = await prisma.Solucion.findMany({
   where: {
     problema: {
