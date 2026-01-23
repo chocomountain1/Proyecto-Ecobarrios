@@ -12,6 +12,13 @@
     font-family: 'Inter', sans-serif;
 }
 
+.modal-h3-text {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333333;
+    font-family: 'Inter', sans-serif;
+}
+
 .modal-p-text {
     padding-bottom: 2%;
     font-size: 16px;

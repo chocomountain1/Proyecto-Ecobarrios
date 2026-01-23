@@ -39,6 +39,21 @@
   opacity: 1;
 }
 
+.modal-proyect-card {
+  padding: 0rem;
+  margin-bottom: 1rem;
+  background: #fff;
+}
+
+.modal-proyect-title {
+  margin-top: 0.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.modal-proyect-title:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
 /* Tipografía base */
 .modal-content h1{
     text-align: center;
