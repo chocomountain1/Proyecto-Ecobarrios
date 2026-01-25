@@ -1,4 +1,21 @@
 import prisma from "../../lib/prisma.js";
+function drivePreviewUrl(url) {
+  if (!url) return null;
+
+  let id = null;
+
+  // formato /d/ID/
+  const match1 = url.match(/\/d\/(.*?)\//);
+  if (match1) id = match1[1];
+
+  // formato ?id=ID
+  const match2 = url.match(/[?&]id=([^&]+)/);
+  if (match2) id = match2[1];
+
+  if (!id) return url;
+
+  return `https://drive.google.com/file/d/${id}/preview`;
+}
 
 const getSolutionsBySolution = async (req, res) => {
   try {
@@ -20,11 +37,17 @@ const getSolutionsBySolution = async (req, res) => {
     nombre_proyecto: true,
     TRL:true,
     grado_innovacion:true,
-    SRL:true
+    SRL:true,
+    url:true
   }
 })
-    
-    res.json(solutions);
+  console.log(solutions[0].url)
+  const formatted_data = solutions.map(s=>({
+    ...s,
+    url: drivePreviewUrl(s.url)
+    }));
+    console.log(formatted_data[0].url)
+    res.json(formatted_data);
   } catch (error) {
     res.status(500).json({ error: "Error obteniendo soluciones" });
   }
