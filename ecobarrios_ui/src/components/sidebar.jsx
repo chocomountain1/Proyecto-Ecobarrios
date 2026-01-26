@@ -9,7 +9,7 @@ import OdsSelect from './ods_select';
 import Switch from './switch';
 import Slider from './slider';
 
-export default function Sidebar() {
+export default function Sidebar(setFilters) {
   const [switchChecked, setSwitchChecked] = React.useState(false);
   return (
     <div className="sidebar">
@@ -20,7 +20,7 @@ export default function Sidebar() {
         <div className="filter-header">
           <p className ="filter-header-text">Mostrar ecobarrios por ods específico</p>
         </div>
-        <OdsSelect />
+        <OdsSelect setFilters = {setFilters}/>
       </div>
       <div className="filter-divider"></div>
       <div className="filter-section">
@@ -28,7 +28,7 @@ export default function Sidebar() {
           <p className ="filter-header-text">Mostrar ecobarrios por cantidad de proyectos</p>
           <Switch checked = {switchChecked} onChange={() => setSwitchChecked(!switchChecked)} />
         </div>
-        {switchChecked && <Slider min={0} max={6} step={1} />}
+        {switchChecked && <Slider min={0} max={6} step={1} setFilters = {setFilters}/>}
       </div>
     </div>
   );

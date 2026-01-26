@@ -1,29 +1,23 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../styles/components/elements/ods_select.css';
 
-export default function OdsSelect() {
+export default function OdsSelect(setFilter) {
   const [selectedOds, setSelectedOds] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef(null);
 
   const odsOptions = [
-    { id: 1, name: 'Pobreza cero' },
-    { id: 2, name: 'Hambre cero' },
-    { id: 3, name: 'Salud y bienestar' },
-    { id: 4, name: 'Educación de calidad' },
-    { id: 5, name: 'Igualdad de género' },
-    { id: 6, name: 'Agua limpia y saneamiento' },
-    { id: 7, name: 'Energía asequible y no contaminante' },
-    { id: 8, name: 'Trabajo decente y crecimiento económico' },
-    { id: 9, name: 'Industria, innovación e infraestructura' },
-    { id: 10, name: 'Reducción de las desigualdades' },
-    { id: 11, name: 'Ciudades y comunidades sostenibles' },
-    { id: 12, name: 'Producción y consumo responsables' },
-    { id: 13, name: 'Acción por el clima' },
-    { id: 14, name: 'Vida submarina' },
-    { id: 15, name: 'Vida de ecosistemas terrestres' },
-    { id: 16, name: 'Paz, justicia e instituciones sólidas' },
-    { id: 17, name: 'Alianzas para lograr los objetivos' },
+    { id: 1, name: 'Biodiversidad' },
+    { id: 2, name: 'Restauración Ecológica' },
+    { id: 3, name: 'Educación Ambiental' },
+    { id: 4, name: 'Áreas Verdes' },
+    { id: 5, name: 'Gestión y Manejo de Residuos' },
+    { id: 6, name: 'Huertos Comunitarios' },
+    { id: 7, name: 'Eficiencia Energética' },
+    { id: 8, name: 'Tenencia Responsable de Mascotas' },
+    { id: 9, name: 'Seguridad' },
+    { id: 10, name: 'Gestión Hídrica' },
+    { id: 11, name: 'Contaminación Atmosférica' },
   ];
 
   const handleToggleOds = (odsId) => {

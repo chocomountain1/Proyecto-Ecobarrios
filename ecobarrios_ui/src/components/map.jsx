@@ -12,9 +12,7 @@ import Sidebar from './sidebar';
 import { useEffect } from 'react';
 import Proyect from './proyects';
 
-export default function Map({ ecobarrios }) {
-  console.log(ecobarrios)
-  console.log(ecobarrios[0]);
+export default function Map({ ecobarrios, setFilters }) {
   const [selectedMarker, setSelectedMarker] = React.useState(null);
   const [solutions, setSolutions] = React.useState([]);
   useEffect(() => {
@@ -58,14 +56,13 @@ export default function Map({ ecobarrios }) {
             url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
             attribution='&copy; OpenStreetMap contributors &copy; CARTO'
           ></TileLayer>;
-
           {ecobarrios.map((e) => (
              <MarkerComp e={e} onSelect={setSelectedMarker} />
           ))}
         </MapContainer>
         </div>
       <div className="sidebar-space" aria-hidden="true">
-        {<Sidebar />}
+        {<Sidebar setFilters = {setFilters}/>}
       </div>
     </div>
     

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/components/elements/slider.css';
 
-export default function Slider({ label, min = 0, max = 10, step = 1, onChange }) {
+export default function Slider({ label, min = 0, max = 10, step = 1, onChange, setFilters }) {
   const [value, setValue] = useState(min);
 
   const handleChange = (e) => {

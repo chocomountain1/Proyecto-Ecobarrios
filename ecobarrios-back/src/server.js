@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get("/api/ecobarrios", getEcobarrios); // ruta api ecobarrios
+app.post("/api/ecobarrios", getEcobarrios); // ruta api ecobarrios
 app.get("/api/ecobarrios/:id/solutions", getSolutionsByEcobarrio); // ruta api soluciones por ecobarrio
 app.get("/api/ecobarrios/:id/problem", getProblemBySolution); // ruta api problemas por ecobarrio
 
