@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../styles/components/elements/ods_select.css';
 
-export default function OdsSelect(setFilter) {
+export default function OdsSelect({setFilters}) {
   const [selectedOds, setSelectedOds] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef(null);
@@ -21,16 +21,25 @@ export default function OdsSelect(setFilter) {
   ];
 
   const handleToggleOds = (odsId) => {
-    setSelectedOds((prev) =>
-      prev.includes(odsId)
+    setSelectedOds((prev) =>{
+      const list = prev.includes(odsId)
         ? prev.filter((id) => id !== odsId)
         : [...prev, odsId]
-    );
+      setFilters((prev) =>({
+        ...prev,
+        action_lines: list.map((e) => odsOptions[e-1].name),
+      }));
+      return list
+    });
   };
 
   const handleClear = () => {
     setSelectedOds([]);
     setIsOpen(false);
+    setFilters((prev) =>({
+      ...prev,
+      action_lines : []
+    }))
   };
 
   // Cerrar el dropdown cuando se hace click fuera
@@ -54,8 +63,8 @@ export default function OdsSelect(setFilter) {
         onClick={() => setIsOpen(!isOpen)}
       >
         {selectedOds.length === 0
-          ? 'Selecciona un ODS'
-          : `${selectedOds.length} ODS seleccionados`}
+          ? 'Selecciona una línea de acción'
+          : `${selectedOds.length} Línas de acción seleccionadas`}
         <span className={`arrow ${isOpen ? 'open' : ''}`}>▼</span>
       </button>
 

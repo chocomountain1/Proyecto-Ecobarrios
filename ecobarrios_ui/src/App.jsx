@@ -6,10 +6,10 @@ function App() {
   const [ecobarrios, setEcobarrio] = useState([]) 
 
   const [filters, setFilters] = useState({
-    action_line: "",
+    action_lines: [],
     n_sol: "",
   })
-
+  console.log(filters)
     useEffect(() => {
       const fetchEcobarrios = async() =>{
         const response = await fetch('http://localhost:3000/api/ecobarrios',{

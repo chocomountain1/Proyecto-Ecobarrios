@@ -9,7 +9,7 @@ import OdsSelect from './ods_select';
 import Switch from './switch';
 import Slider from './slider';
 
-export default function Sidebar(setFilters) {
+export default function Sidebar({setFilters}) {
   const [switchChecked, setSwitchChecked] = React.useState(false);
   return (
     <div className="sidebar">
