@@ -7,18 +7,18 @@ export default function OdsSelect({setFilters}) {
   const containerRef = useRef(null);
 
   const odsOptions = [
-    { id: 1, name: 'Biodiversidad' },
-    { id: 2, name: 'Restauración Ecológica' },
-    { id: 3, name: 'Educación Ambiental' },
-    { id: 4, name: 'Áreas Verdes' },
-    { id: 5, name: 'Gestión y Manejo de Residuos' },
-    { id: 6, name: 'Huertos Comunitarios' },
-    { id: 7, name: 'Eficiencia Energética' },
-    { id: 8, name: 'Tenencia Responsable de Mascotas' },
-    { id: 9, name: 'Seguridad' },
-    { id: 10, name: 'Gestión Hídrica' },
-    { id: 11, name: 'Contaminación Atmosférica' },
-  ];
+  { id: 1, name: 'Biodiversidad', display: '🦋 Biodiversidad'},
+  { id: 2, name: 'Restauración Ecológica', display: '🌱 Restauración Ecológica' },
+  { id: 3, name: 'Educación Ambiental', display: '📚 Educación Ambiental' },
+  { id: 4, name: 'Áreas Verdes' , display: '🌳 Áreas Verdes'},
+  { id: 5, name: 'Gestión y Manejo de Residuos', display:'♻️ Gestión y Manejo de Residuos' },
+  { id: 6, name: 'Huertos Comunitarios', display: '🥕 Huertos Comunitarios' },
+  { id: 7, name: 'Eficiencia Energética', display: '⚡Eficiencia Energética' },
+  { id: 8, name: 'Tenencia Responsable de Mascotas', display: '🐶 Tenencia Responsable de Mascotas' },
+  { id: 9, name: 'Seguridad', display: '🛡️ Seguridad' },
+  { id: 10, name: 'Gestión Hídrica', display: '💧 Gestión Hídrica' },
+  { id: 11, name: 'Contaminación Atmosférica', display:'🌫️ Contaminación Atmosférica' },
+];
 
   const handleToggleOds = (odsId) => {
     setSelectedOds((prev) =>{
@@ -64,7 +64,7 @@ export default function OdsSelect({setFilters}) {
       >
         {selectedOds.length === 0
           ? 'Selecciona una línea de acción'
-          : `${selectedOds.length} Línas de acción seleccionadas`}
+          : `${selectedOds.length} Líneas de acción seleccionadas`}
         <span className={`arrow ${isOpen ? 'open' : ''}`}>▼</span>
       </button>
 
@@ -80,7 +80,7 @@ export default function OdsSelect({setFilters}) {
                 onClick={() => handleToggleOds(ods.id)}
               >
                 <span className="ods-label">
-                  {ods.id}. {ods.name}
+                  {ods.id}. {ods.display}
                 </span>
                 {selectedOds.includes(ods.id) && (
                   <span className="checkmark">✓</span>

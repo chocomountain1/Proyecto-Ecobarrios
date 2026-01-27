@@ -42,28 +42,28 @@ export default function Sidebar({setFilters}) {
           <p className ="filter-header-text">Mostrar ecobarrios por su estado de consolidación</p>
         </div>
         <div className='filter-section-hor'>
-          <p className = 'filter-option-text'>Semilla</p>
+          <p className = 'filter-option-text'>🟡Semilla</p>
           <div className = 'filter-comp'>
           <OptionSwitch checked = {switchCheckedSemilla} onChange={() => setSwitchCheckedSemilla} setFilters={setFilters} consolidationStatus={"Semilla"}></OptionSwitch>
           </div>
         </div>
         <div className='filter-section-hor'>
           <div className='filter-header'>
-            <p className = 'filter-option-text'>Emergente</p>
+            <p className = 'filter-option-text'>🔴Emergente</p>
           </div>
           <div className = 'filter-comp'>
           <OptionSwitch checked = {switchCheckedEmergente} onChange={() => setSwitchCheckedEmergente} setFilters={setFilters} consolidationStatus={"Emergente"}></OptionSwitch>
           </div>
         </div>
         <div className='filter-section-hor'>
-          <p className = 'filter-option-text'>En consolidación</p>
+          <p className = 'filter-option-text'>🟢En consolidación</p>
           <div className = 'filter-comp'>
           <OptionSwitch checked = {switchCheckedConsolidacion} onChange={() => setSwitchCheckedConsolidacion} setFilters = {setFilters} consolidationStatus={"En Consolidación"}></OptionSwitch>
           </div>
         </div>
         <div className='filter-section-hor'>
           <div className='filter-header'>
-            <p className = 'filter-option-text'>Referente</p>
+            <p className = 'filter-option-text'>🔵Referente</p>
           </div>
           <div className = 'filter-comp'>
           <OptionSwitch checked = {switchCheckedReferente} onChange={() => setSwitchCheckedReferente} setFilters={setFilters} consolidationStatus={"Referente"}></OptionSwitch>
@@ -71,7 +71,7 @@ export default function Sidebar({setFilters}) {
         </div>
         <div className='filter-section-hor'>
           <div className='filter-header'>
-            <p className = 'filter-option-text'>Otro</p>
+            <p className = 'filter-option-text'>⚪Otro</p>
           </div>
           <div className = 'filter-comp'>
           <OptionSwitch checked = {switchCheckedOtro} onChange={() => setSwitchCheckedOtro} setFilters={setFilters} consolidationStatus={"No participó en Sendero Ecobarrio"}></OptionSwitch>

@@ -35,3 +35,33 @@
   padding: 0.5rem;
   box-sizing: border-box;
 }
+
+/* Verde personalizado */
+.awesome-marker-icon-green .awesome-marker {
+   border-bottom-color: #f59e0b !important;  /* ámbar */
+}
+
+/* Verde-azulado */
+.awesome-marker-icon-cadetblue .awesome-marker {
+  border-bottom-color: #f97316 !important;  /* naranja real */
+}
+
+/* Turquesa */
+.awesome-marker-icon-blue .awesome-marker {
+  border-bottom-color: #22c55e !important;
+}
+
+/* Azul turquesa */
+.awesome-marker-icon-darkblue .awesome-marker {
+  border-bottom-color: #14b8a6 !important;
+}
+
+
+
+
+
+
+/* 🔷 TURQUESA (Referente) */
+.awesome-marker-icon-blue .awesome-marker {
+  border-bottom-color: #14b8a6 !important;
+}

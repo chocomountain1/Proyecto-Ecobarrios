@@ -1,15 +1,15 @@
 import { Marker, Popup} from "react-leaflet";
 import myMarker from './icons/markers';
-
+import '../styles/components/elements/map.css'
 
 
 // Diccionario para desambiguar el estado de consolidación de los ecobarrios
 const consolidationStatus = {
   "No participó en Sendero Ecobarrio" : "gray",
-  "Semilla" : "green",
-  "Emergente" : "red",
-  "En Consolidación" : "orange",
-  "Referente" : "blue"
+  "Semilla" : "orange",
+  "Emergente" : "darkred",
+  "En Consolidación" : "green",
+  "Referente" : "darkblue"
 }
 
 function MarkerComp({ e, onSelect}){
