@@ -16,7 +16,7 @@ const getEcobarrios = async (req, res) => {
         mode: "insensitive",
       },
     }));
-  }
+    }
     
     const ecobarrios = await prisma.ecobarrio.findMany({
       where,

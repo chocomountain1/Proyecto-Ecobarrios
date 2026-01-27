@@ -17,11 +17,11 @@ function drivePreviewUrl(url) {
   return `https://drive.google.com/file/d/${id}/preview`;
 }
 
-const getSolutionsBySolution = async (req, res) => {
+const getSolutionsByEcobarrio = async (req, res) => {
   try {
     
     const id = req.params.id;
-    const solutions = await prisma.Solucion.findMany({
+    const solution = await prisma.Solucion.findMany({
   where: {
     problema: {
       desafio: {
@@ -41,16 +41,20 @@ const getSolutionsBySolution = async (req, res) => {
     url:true
   }
 })
-  console.log(solutions[0].url)
-  const formatted_data = solutions.map(s=>({
+  if(solution.url){
+  const formatted_data = solution.map(s=>({
     ...s,
     url: drivePreviewUrl(s.url)
     }));
     console.log(formatted_data[0].url)
     res.json(formatted_data);
+  }
+  else{
+    res.json(solution);
+  }
   } catch (error) {
     res.status(500).json({ error: "Error obteniendo soluciones" });
   }
 };
 
-export default getSolutionsBySolution;
+export default getSolutionsByEcobarrio;
