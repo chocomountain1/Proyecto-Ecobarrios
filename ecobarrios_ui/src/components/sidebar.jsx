@@ -13,6 +13,7 @@ import OptionSwitch from './option_switch';
 export default function Sidebar({setFilters}) {
   const [switchChecked, setSwitchChecked] = React.useState(false);
   const [switchCheckedSemilla, setSwitchCheckedSemilla] = React.useState(false);
+  const [switchCheckedEmergente, setSwitchCheckedEmergente] = React.useState(false);
   const [switchCheckedConsolidacion, setSwitchCheckedConsolidacion] = React.useState(false);
   const [switchCheckedReferente, setSwitchCheckedReferente] = React.useState(false);
   const [switchCheckedOtro, setSwitchCheckedOtro] = React.useState(false);
@@ -44,6 +45,14 @@ export default function Sidebar({setFilters}) {
           <p className = 'filter-option-text'>Semilla</p>
           <div className = 'filter-comp'>
           <OptionSwitch checked = {switchCheckedSemilla} onChange={() => setSwitchCheckedSemilla} setFilters={setFilters} consolidationStatus={"Semilla"}></OptionSwitch>
+          </div>
+        </div>
+        <div className='filter-section-hor'>
+          <div className='filter-header'>
+            <p className = 'filter-option-text'>Emergente</p>
+          </div>
+          <div className = 'filter-comp'>
+          <OptionSwitch checked = {switchCheckedEmergente} onChange={() => setSwitchCheckedEmergente} setFilters={setFilters} consolidationStatus={"Emergente"}></OptionSwitch>
           </div>
         </div>
         <div className='filter-section-hor'>

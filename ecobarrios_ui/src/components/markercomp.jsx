@@ -7,8 +7,9 @@ import myMarker from './icons/markers';
 const consolidationStatus = {
   "No participó en Sendero Ecobarrio" : "gray",
   "Semilla" : "green",
+  "Emergente" : "red",
   "En Consolidación" : "orange",
-  "Referente" : "red"
+  "Referente" : "blue"
 }
 
 function MarkerComp({ e, onSelect}){
