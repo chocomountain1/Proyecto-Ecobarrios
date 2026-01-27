@@ -5,6 +5,7 @@ const getEcobarrios = async (req, res) => {
     const {
       action_lines,
       n_sol,
+      consolidationStatus,
     } = req.body;
    
     const where = {};
@@ -16,6 +17,15 @@ const getEcobarrios = async (req, res) => {
         mode: "insensitive",
       },
     }));
+    }
+    
+    if(consolidationStatus && consolidationStatus != ""){
+      where.OR = consolidationStatus.map((p) =>({
+        sendero_ecobarrio:{
+          contains: p,
+          mode: "insensitive",
+        }
+      }));
     }
     
     if(n_sol > -1){
@@ -35,9 +45,10 @@ const getEcobarrios = async (req, res) => {
           }
         }
       });
-      let comparator;
 
-      if(n_sol > 5){
+      let comparator; //funcion anonima que guarda lo que quiero hacer según el valor del input de n_sol
+
+      if(n_sol > 5){ 
         comparator = (a,b) => a >= b;
       }
       else{

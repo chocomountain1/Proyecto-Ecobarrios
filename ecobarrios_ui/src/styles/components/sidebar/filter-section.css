@@ -1,9 +1,25 @@
 .filter-section {
-  padding-left: 5%;
+  padding-left: 2%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 12px;
   position: relative;
+}
+
+.filter-section-hor{
+  padding-left: 5%;
+  padding-right: 5%;
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  position: relative;
+  gap: 20%;
+}
+
+.filter-comp{
+  align-items: right;
+  flex-direction: row;
+  position: absolute;
+  right: 0;
 }
 

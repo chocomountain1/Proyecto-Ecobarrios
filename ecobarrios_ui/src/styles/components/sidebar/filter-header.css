@@ -1,5 +1,6 @@
 .filter-header {
   display: flex;
-  align-items: center;
+  align-items: left;
+  justify-content: left;
   gap: 12px;
 }

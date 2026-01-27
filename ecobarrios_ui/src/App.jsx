@@ -8,6 +8,7 @@ function App() {
   const [filters, setFilters] = useState({
     action_lines: [],
     n_sol: -1,
+    consolidationStatus:[],
   })
   console.log(filters)
     useEffect(() => {
