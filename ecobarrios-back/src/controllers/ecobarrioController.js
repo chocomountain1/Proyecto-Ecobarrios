@@ -18,6 +18,40 @@ const getEcobarrios = async (req, res) => {
     }));
     }
     
+    if(n_sol > -1){
+      const ecobarrios = await prisma.ecobarrio.findMany({
+        where,
+        include: {
+          desafios: {
+            include: {
+              problemas: {
+                include: {
+                  _count: {
+                    select: { soluciones: true }
+                  }
+                }
+              }
+            }
+          }
+        }
+      });
+      let comparator;
+
+      if(n_sol > 5){
+        comparator = (a,b) => a >= b;
+      }
+      else{
+        comparator = (a,b) => a == b
+      }
+      const filtrados = ecobarrios.filter(e =>
+       comparator(e.desafios.reduce((accD, d) =>
+        accD + d.problemas.reduce((accP, p) =>
+          accP + p._count.soluciones, 0
+        ), 0
+      ),n_sol)
+    );
+      return res.json(filtrados);
+    }
     const ecobarrios = await prisma.ecobarrio.findMany({
       where,
       select: {

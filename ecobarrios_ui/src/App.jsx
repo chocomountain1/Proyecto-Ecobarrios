@@ -7,7 +7,7 @@ function App() {
 
   const [filters, setFilters] = useState({
     action_lines: [],
-    n_sol: "",
+    n_sol: -1,
   })
   console.log(filters)
     useEffect(() => {

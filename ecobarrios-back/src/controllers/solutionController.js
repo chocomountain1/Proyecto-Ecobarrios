@@ -49,9 +49,7 @@ const getSolutionsByEcobarrio = async (req, res) => {
     console.log(formatted_data[0].url)
     res.json(formatted_data);
   }
-  else{
-    res.json(solution);
-  }
+  else res.json(solution);
   } catch (error) {
     res.status(500).json({ error: "Error obteniendo soluciones" });
   }

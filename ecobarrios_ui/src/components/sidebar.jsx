@@ -18,7 +18,7 @@ export default function Sidebar({setFilters}) {
       </div>
       <div className="filter-section">
         <div className="filter-header">
-          <p className ="filter-header-text">Mostrar ecobarrios por ods específico</p>
+          <p className ="filter-header-text">Mostrar ecobarrios por linea de acción en específico</p>
         </div>
         <OdsSelect setFilters = {setFilters}/>
       </div>
@@ -26,7 +26,7 @@ export default function Sidebar({setFilters}) {
       <div className="filter-section">
         <div className="filter-header">
           <p className ="filter-header-text">Mostrar ecobarrios por cantidad de proyectos</p>
-          <Switch checked = {switchChecked} onChange={() => setSwitchChecked(!switchChecked)} />
+          <Switch checked = {switchChecked} onChange={() => setSwitchChecked(!switchChecked)} setFilters={setFilters} />
         </div>
         {switchChecked && <Slider min={0} max={6} step={1} setFilters = {setFilters}/>}
       </div>

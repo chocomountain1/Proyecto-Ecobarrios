@@ -6,6 +6,10 @@ export default function Slider({ label, min = 0, max = 10, step = 1, onChange, s
 
   const handleChange = (e) => {
     const newValue = parseInt(e.target.value);
+    setFilters((f) =>({
+      ...f,
+      n_sol:newValue,
+    }))
     setValue(newValue);
     if (onChange) {
       onChange(newValue);

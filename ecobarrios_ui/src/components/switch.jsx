@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/components/elements/switch.css';
 
-export default function Switch({ label, checked = false, onChange }) {
+export default function Switch({ label, checked = false, onChange, setFilters}) {
   const [isChecked, setIsChecked] = useState(checked);
 
   const handleToggle = () => {
@@ -9,8 +9,21 @@ export default function Switch({ label, checked = false, onChange }) {
     if (onChange) {
       onChange(!isChecked);
     }
-  };
+      if(isChecked){
+      setFilters((f) => ({
+      ...f,
+      n_sol: -1,
+      
+    }));
+    }
 
+      if(!isChecked){
+        setFilters((f) =>({
+          ...f,
+          n_sol: 0,
+        }))
+      }
+  }
   return (
     <div className="switch-container">
       <label className="switch">
