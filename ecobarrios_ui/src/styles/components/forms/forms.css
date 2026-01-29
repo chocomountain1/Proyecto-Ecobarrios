@@ -1,0 +1,120 @@
+.form-container {
+  background: #1e1e1e;
+  color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 800px;
+  margin: 2rem auto;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+.form-section {
+  margin-bottom: 2rem;
+}
+
+.form-section h2 {
+  border-bottom: 1px solid #444;
+  padding-bottom: .5rem;
+  margin-bottom: 1rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.input-group label {
+  margin-bottom: .3rem;
+  font-size: .9rem;
+  color: #aaa;
+}
+
+.input-group input,
+.input-group textarea,
+.input-group select {
+  background: #2b2b2b;
+  border: 1px solid #444;
+  color: white;
+  padding: .6rem;
+  border-radius: 6px;
+  font-size: .95rem;
+}
+
+.input-group input:focus,
+.input-group textarea:focus,
+.input-group select:focus {
+  outline: none;
+  border-color: #14b8a6; /* turquesa */
+}
+
+.submit-btn {
+  background: #ffffff;
+  border: none;
+  color: black;
+  padding: .8rem 1.2rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.add-btn {
+  background: #128b0e;
+  border: none;
+  color: black;
+  padding: .5rem 1.2rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.delete-btn {
+  background: #c41313;
+  border: none;
+  color: black; 
+  padding: .3rem 1.2rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.submit-btn:hover {
+  opacity: 0.85;
+}
+
+.options-box {
+  border: 1px solid #444;
+  background: #1e1e1e;
+  padding: 8px;
+  border-radius: 6px;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.option {
+  padding: 6px 8px;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.option:hover {
+  background: #333;
+}
+
+.option.selected {
+  background: #2f6f4f;
+}
+
+.chips {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chip {
+  background: #444;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 12px;
+}

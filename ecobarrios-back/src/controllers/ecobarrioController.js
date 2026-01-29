@@ -1,5 +1,5 @@
 import prisma from "../../lib/prisma.js";
-const getEcobarrios = async (req, res) => {
+export const getEcobarrios = async (req, res) => {
   try {
   
     const {
@@ -85,4 +85,35 @@ const getEcobarrios = async (req, res) => {
   }
 };
 
-export default getEcobarrios;
+export const createEcobarriosyDesafios = async (req,res) => {
+  try{
+    console.log("hola");
+    const data = req.body;
+    const nuevo_ecobarrio_desafio = await prisma.Ecobarrio.create({
+      data:{
+        nombre: data.nombre,
+        comuna: data.comuna,
+        lat: Number(data.lat),
+        lon: Number(data.lon),
+        maps: data.maps,
+        nombre_contacto: data.contacto,
+        telefono_contacto: data.telefono,
+        correo_contacto: data.correo,
+        linea_de_accion: data.linea_accion.join(", "),
+        sendero_ecobarrio: data.estado,
+        desafios:{
+          create: data.desafios.map(d=> ({
+            titulo: d.titulo,
+            desc: d.desc,
+            ubicacion: d.ubicacion,
+          }))
+        }
+      }
+    });
+    console.log("Ecobarrio y desafío creado exitosamente");
+    res.json(nuevo_ecobarrio_desafio);
+  } catch(error) {
+    res.status(500).json({error: "Error creando ecobarrios y sus desafíos"});
+  }
+
+}
