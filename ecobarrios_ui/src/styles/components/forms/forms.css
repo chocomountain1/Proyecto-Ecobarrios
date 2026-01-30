@@ -21,7 +21,8 @@
 .input-group {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
+  margin-bottom: 0rem;
+  margin-top: 1rem;
 }
 
 .input-group label {
@@ -49,7 +50,7 @@
 }
 
 .submit-btn {
-  background: #ffffff;
+  background: #e9e7e7;
   border: none;
   color: black;
   padding: .8rem 1.2rem;
@@ -58,16 +59,17 @@
   cursor: pointer;
 }
 .add-btn {
-  background: #128b0e;
+  background: #000000;
   border: none;
-  color: black;
+  color: rgb(255, 255, 255);
   padding: .5rem 1.2rem;
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
 }
 .delete-btn {
-  background: #c41313;
+  margin-top: 5%;
+  background: #645e5e;
   border: none;
   color: black; 
   padding: .3rem 1.2rem;
@@ -117,4 +119,11 @@
   border-radius: 12px;
   cursor: pointer;
   font-size: 12px;
+}
+
+.error{
+  font-size: 12px;
+  font-weight: 0;
+  color: #f10606;
+  font-family: 'Inter', sans-serif;
 }

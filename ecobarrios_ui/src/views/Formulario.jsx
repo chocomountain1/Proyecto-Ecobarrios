@@ -17,7 +17,7 @@ function Formulario(){
                 <div style={{width: '15rem'}}></div> {/* Espaciador */}
                 <Panel_botones array_textos={["Explorar", "Agregar datos", "Afinidad", "Reportes"]} array_rutas={["/", "/forms"]} />
               </div>
-                <PanelBotonesForm array_textos={["Ecobarrios y desafíos", "Equipo desarrollador, problema y solución", "Aún nose"]} setForm = {setForm}></PanelBotonesForm>
+                <PanelBotonesForm array_textos={["Ecobarrios y desafíos", "Problema y solución", "Equipo desarrollador y datos académicos"]} setForm = {setForm}></PanelBotonesForm>
               <div>
                 {form.ecobarrio && <EcobarrioForm></EcobarrioForm>}
               </div>

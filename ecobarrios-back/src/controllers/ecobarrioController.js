@@ -136,23 +136,26 @@ export const createEcobarriosyDesafios = async (req,res) => {
     });
     console.log("Ecobarrio y desafío creado exitosamente");
     res.json(nuevo_ecobarrio_desafio);
-  } catch(error) {
-    res.status(500).json({error: "Error creando ecobarrios y sus desafíos"});
-  }
+      } catch (error) {
+        console.log(error);
 
-}
+        res.status(500).json({
+          ok: false,
+          error: "No se pudo crear el ecobarrio y sus desafíos",
+        });
+      }
+    };
 
 export const deleteEcobarrio = async(req,res) => {
   try{
   console.log("Eliminando ecobarrio")
   const id = Number(req.params.id)
-  console.log(id)
   await prisma.ecobarrio.delete({
       where: { id },
     });
   console.log("Ecobarrio eliminado correctamente")
   res.json({ message: "Ecobarrio eliminado correctamente" });
   } catch(error){
-    res.status(500).json({ error: "Error al eliminar" });
+    res.status(500).json({ error: "Error al eliminar el ecobarrio" });
   }
 }

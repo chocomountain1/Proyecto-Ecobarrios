@@ -51,13 +51,18 @@ function ProblemaForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await fetch("http://localhost:3000/api/ecobarrios/problemas/create", {
+    const res = await fetch("http://localhost:3000/api/ecobarrios/problemas/create", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     });
+    const response = await res.json();
 
-    alert("Ecobarrio y sus desafíos cargados correctamente!");
+    if(!res.ok && !response.ok){
+      alert("Hubo un problema cargando el problema y la solución :(")
+    } else{
+      alert("Problema y solución cargado correctamente!");
+    }
   };
 
   return (

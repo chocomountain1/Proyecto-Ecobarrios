@@ -40,10 +40,14 @@ export const createProblema = async (req,res) => {
     });
     console.log("Problema y solucion creado exitosamente");
     res.json(nuevo_problema_solucion);
-  } catch(error) {
-    console.log(error)
-    res.status(500).json({error: "Error creando ecobarrios y sus desafíos"});
-  }
 
-}
+    } catch (error) {
+      console.log(error);
+
+      res.status(500).json({
+        ok: false,
+        error: "No se pudo crear el problema y la solución",
+      });
+    }
+  };
 
