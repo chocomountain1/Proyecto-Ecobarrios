@@ -18,7 +18,7 @@ export default function Afiche({solution}){
     <div className='modal-section-title'>
                                     <h2 className = "modal-h2-text">Afiche del proyecto</h2>
                                     <div className = "modal-section-content">
-                                        <iframe
+                                        <img
                                             src={solution.url}
                                             width="100%"
                                             height="500px"

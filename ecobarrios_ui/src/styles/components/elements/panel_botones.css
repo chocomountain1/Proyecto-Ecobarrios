@@ -6,3 +6,15 @@
   border-radius: 0.90rem;
   background: #323438;
 }
+
+.panel-botones-form {
+  position: fixed;
+  top: 10%;
+  left: 0;
+  right: 0;
+  gap: 0.2rem;
+  align-items: stretch;
+  padding: 0.2rem;
+  background: #323438;
+}
+

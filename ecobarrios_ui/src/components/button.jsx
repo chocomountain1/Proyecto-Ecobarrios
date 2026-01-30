@@ -10,3 +10,4 @@ export default function Button({ text, ruta }) {
     </button>
   )
 }
+

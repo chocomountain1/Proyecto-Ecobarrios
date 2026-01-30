@@ -26,8 +26,6 @@ function EcobarrioForm() {
     }]
   });
 
-  console.log(data)
-
   const estados = [
     "Semilla",
     "Emergente",

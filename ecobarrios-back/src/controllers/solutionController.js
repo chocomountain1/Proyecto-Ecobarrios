@@ -1,5 +1,5 @@
 import prisma from "../../lib/prisma.js";
-function drivePreviewUrl(url) {
+function driveDirectUrl(url) {
   if (!url) return null;
 
   let id = null;
@@ -14,8 +14,9 @@ function drivePreviewUrl(url) {
 
   if (!id) return url;
 
-  return `https://drive.google.com/file/d/${id}/preview`;
+  return `https://drive.google.com/uc?export=view&id=${id}`;
 }
+
 
 const getSolutionsByEcobarrio = async (req, res) => {
   try {
@@ -51,6 +52,7 @@ const getSolutionsByEcobarrio = async (req, res) => {
   }
   else res.json(solution);
   } catch (error) {
+    console.log(error)
     res.status(500).json({ error: "Error obteniendo soluciones" });
   }
 };

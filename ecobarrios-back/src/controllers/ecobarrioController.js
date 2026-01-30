@@ -1,7 +1,32 @@
 import prisma from "../../lib/prisma.js";
+
+export const getAllEcobarrios = async (req,res) => {
+  try {
+    console.log("Consultando ecobarrios sin ningún filtro")
+    const ecobarrios = await prisma.ecobarrio.findMany({
+      select: {
+        id: true,
+        nombre: true,
+        comuna: true,
+        lat: true,
+        lon: true,
+        maps: true,
+        nombre_contacto: true,
+        telefono_contacto: true,
+        correo_contacto: true,
+        linea_de_accion: true,
+        sendero_ecobarrio: true
+      },
+    });
+    res.json(ecobarrios);
+  } catch (error) {
+    res.status(500).json({ error: "Error obteniendo ecobarrios" });
+  }
+};
+
 export const getEcobarrios = async (req, res) => {
   try {
-  
+    console.log("Consultando ecobarrios")
     const {
       action_lines,
       n_sol,
@@ -87,7 +112,6 @@ export const getEcobarrios = async (req, res) => {
 
 export const createEcobarriosyDesafios = async (req,res) => {
   try{
-    console.log("hola");
     const data = req.body;
     const nuevo_ecobarrio_desafio = await prisma.Ecobarrio.create({
       data:{
