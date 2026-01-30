@@ -56,8 +56,37 @@
   border-bottom-color: #14b8a6 !important;
 }
 
+.d-btn{
+  padding: 0.5rem 1.2rem;
+  border-radius: 0.90rem;
+  border: none;
+  background: #3b3737; /* tono gris por defecto */
+  color: #d6d4d4; /* texto oscuro por defecto */
+  cursor: pointer;
+}
 
+/* estados hover / focus / selected: letra más blanca y gris más brillante */
+.d-btn:hover{
+  background: #2e2b2b; /* gris más brillante al interactuar */
+  color: #ffffff; /* letras más blancas */
+  opacity: 1;
+}
 
+.back-btn{
+  padding: 0.5rem 1.2rem;
+  border-radius: 0.90rem;
+  border: none;
+  background: #b1a7a7; /* tono gris por defecto */
+  color: #181515; /* texto oscuro por defecto */
+  cursor: pointer;
+  margin-left: 2%;
+}
+
+.back-btn:hover{
+  background: #e4d1d1; /* gris más brillante al interactuar */
+  color: #000000; /* letras más blancas */
+  opacity: 1;
+}
 
 
 

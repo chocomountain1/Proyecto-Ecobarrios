@@ -1,6 +1,6 @@
 import express  from "express";
 import cors from "cors";
-import { createEcobarriosyDesafios, getAllEcobarrios } from "./controllers/ecobarrioController.js";
+import { createEcobarriosyDesafios, deleteEcobarrio, getAllEcobarrios } from "./controllers/ecobarrioController.js";
 import { getEcobarrios }  from "./controllers/ecobarrioController.js";
 import getSolutionsByEcobarrio from "./controllers/solutionController.js";
 import {getProblemBySolution} from "./controllers/problemController.js";
@@ -17,5 +17,5 @@ app.post("/api/ecobarrios/problemas/create", createProblema); //post de problema
 app.get("/api/ecobarrios/:id/desafios", getDesafioByEcobarrio);
 app.get("/api/ecobarrios/:id/solutions", getSolutionsByEcobarrio); // ruta api soluciones por ecobarrio
 app.get("/api/ecobarrios/:id/problem", getProblemBySolution); // ruta api problemas por ecobarrio
-
+app.delete("/api/ecobarrios/:id/delete", deleteEcobarrio);
 app.listen(3000, () => console.log("API funcionando en :3000"));

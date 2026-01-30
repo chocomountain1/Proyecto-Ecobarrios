@@ -4,7 +4,6 @@ import '../styles/components/modal/modal-text.css';
 import "leaflet.awesome-markers/dist/leaflet.awesome-markers.css"; //markers personalizados
 import "@fortawesome/fontawesome-free/css/all.css"; //fuentes en los markers personalizados
 import { MapContainer, TileLayer } from 'react-leaflet';
-import MarkerClusterGroup from 'react-leaflet-markercluster';
 import MarkerComp from './markerComp';
 import Modal from './modal';
 import React from 'react';
@@ -12,9 +11,26 @@ import Sidebar from './sidebar';
 import { useEffect } from 'react';
 import Proyect from './proyects';
 
+
 export default function Map({ ecobarrios, setFilters }) {
   const [selectedMarker, setSelectedMarker] = React.useState(null);
   const [solutions, setSolutions] = React.useState([]);
+  const [deletePressed, setDeletePressed] = React.useState(false);
+  
+  const deleteEcobarrio = async (id) => {
+    const res = await fetch(`http://localhost:3000/api/ecobarrios/${id}/delete`, {
+      method: "DELETE",
+    });
+
+    const data = await res.json(); 
+
+    if (res.ok) {
+      window.location.href = "/";
+      alert(data.message + " se recargará la página");
+    } else {
+      alert(data.error);
+    }
+  };
   useEffect(() => {
     if (!selectedMarker) return;
 
@@ -47,6 +63,24 @@ export default function Map({ ecobarrios, setFilters }) {
               <h2 className = "modal-h2-text">Proyectos abordados</h2>
                 <Proyect solutions={solutions}/>
             </div>
+
+            <div className = "modal-section-content">
+              <button className='d-btn' onClick={() => setDeletePressed(true)}>Borrar Ecobarrio</button>
+            </div>
+            {deletePressed && <Modal onClose={() => setDeletePressed(false)}>
+              <div className='modal-section-title'>
+                <h2 className = "modal-section-content" >¿Quieres borrar este ecobarrio?</h2>
+                <p className = "modal-p-text">Se borrarán todos los proyectos asociados</p>
+                <div className = "modal-section-content">
+                  <button className='d-btn' onClick={() => deleteEcobarrio(selectedMarker.e.id)}>
+                      Sí quiero borrarlo
+                  </button>
+                  <button className = 'back-btn' onClick={() => setDeletePressed(false)}>
+                    Volver
+                  </button>
+                </div>
+              </div>
+              </Modal>}
           </div>
         </Modal>
         )}

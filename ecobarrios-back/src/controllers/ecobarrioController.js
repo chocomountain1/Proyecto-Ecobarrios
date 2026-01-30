@@ -141,3 +141,18 @@ export const createEcobarriosyDesafios = async (req,res) => {
   }
 
 }
+
+export const deleteEcobarrio = async(req,res) => {
+  try{
+  console.log("Eliminando ecobarrio")
+  const id = Number(req.params.id)
+  console.log(id)
+  await prisma.ecobarrio.delete({
+      where: { id },
+    });
+  console.log("Ecobarrio eliminado correctamente")
+  res.json({ message: "Ecobarrio eliminado correctamente" });
+  } catch(error){
+    res.status(500).json({ error: "Error al eliminar" });
+  }
+}
