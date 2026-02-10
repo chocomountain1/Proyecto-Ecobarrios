@@ -1,4 +1,4 @@
-import Button from './Button';
+import Button from './Button.jsx';
 import '../styles/components/elements/panel_botones.css';
 
 export default function Panel_botones({array_textos, array_rutas}) {
