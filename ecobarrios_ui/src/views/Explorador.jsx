@@ -1,7 +1,7 @@
 import '../App.css'
-import Map from '../components/map.jsx'      
+import Map from '../components/Map.jsx'
 import React, { useState, useEffect } from 'react'
-import Panel_botones from '../components/panel_botones.jsx'
+import Panel_botones from '../components/Panel_botones.jsx'
 
 function Explorador() {
   const [ecobarrios, setEcobarrio] = useState([]) 
