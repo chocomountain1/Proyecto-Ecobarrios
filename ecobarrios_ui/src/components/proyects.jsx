@@ -1,8 +1,8 @@
 import '../styles/components/modal/modal.css';
 import React from 'react';
 import { useState } from "react";
-import SolutionModal from "./solution_modal";
-import Afiche from "./afiche"
+import SolutionModal from "./Solution_modal";
+import Afiche from "./Afiche"
 
 export default function Proyect({ solutions}){
     const [open, setOpen] = useState(false);

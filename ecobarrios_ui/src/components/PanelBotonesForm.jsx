@@ -1,5 +1,5 @@
 import '../styles/components/elements/panel_botones.css';
-import ButtonWithoutRoute from './ButtonWithoutRoute.jsx';
+import ButtonWithoutRoute from './ButtonWithoutRoute';
 
 const dicc = [
     {id: 0, name: "ecobarrio"},
