@@ -4,12 +4,12 @@ import '../styles/components/modal/modal-text.css';
 import "leaflet.awesome-markers/dist/leaflet.awesome-markers.css"; //markers personalizados
 import "@fortawesome/fontawesome-free/css/all.css"; //fuentes en los markers personalizados
 import { MapContainer, TileLayer } from 'react-leaflet';
-import MarkerComp from './markerComp';
-import Modal from './modal';
+import MarkerComp from './Markercomp';
+import Modal from './Modal';
 import React from 'react';
-import Sidebar from './sidebar';
+import Sidebar from './Sidebar';
 import { useEffect } from 'react';
-import Proyect from './proyects';
+import Proyect from './Proyects';
 
 
 export default function Map({ ecobarrios, setFilters }) {
