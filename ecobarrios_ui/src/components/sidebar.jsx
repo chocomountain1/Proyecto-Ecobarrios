@@ -5,10 +5,10 @@ import '../styles/components/sidebar/filter-header.css';
 import '../styles/components/sidebar/filter-header-text.css';
 import '../styles/components/sidebar/filter-divider.css';
 import React from 'react';
-import OdsSelect from './ods_select';
-import Switch from './switch';
-import Slider from './slider';
-import OptionSwitch from './option_switch';
+import OdsSelect from './Ods_select';
+import Switch from './Switch';
+import Slider from './Slider';
+import OptionSwitch from './Option_switch';
 
 export default function Sidebar({setFilters}) {
   const [switchChecked, setSwitchChecked] = React.useState(false);
