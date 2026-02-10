@@ -1,4 +1,4 @@
-import Panel_botones from '../components/panel_botones.jsx'
+import Panel_botones from '../components/Panel_botones.jsx'
 import EcobarrioForm from '../components/EcobarrioForm.jsx';
 import ProblemaForm from '../components/ProblemaForm.jsx';
 import PanelBotonesForm from '../components/PanelBotonesForm.jsx';
