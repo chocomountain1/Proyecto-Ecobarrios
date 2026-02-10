@@ -11,10 +11,9 @@ function Explorador() {
     n_sol: -1,
     consolidationStatus:[],
   })
-  console.log(filters)
     useEffect(() => {
       const fetchEcobarrios = async() =>{
-        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/ecobarrios`,{
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/ecobarrios/sinFiltros`,{
           method: 'POST',
           headers: { 'Content-Type' : 'application/json' },
           body: JSON.stringify(filters),
