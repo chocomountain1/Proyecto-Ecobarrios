@@ -18,7 +18,7 @@ export default function Map({ ecobarrios, setFilters }) {
   const [deletePressed, setDeletePressed] = React.useState(false);
   
   const deleteEcobarrio = async (id) => {
-    const res = await fetch(`http://localhost:3000/api/ecobarrios/${id}/delete`, {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/ecobarrios/${id}/delete`, {
       method: "DELETE",
     });
 
@@ -34,7 +34,7 @@ export default function Map({ ecobarrios, setFilters }) {
   useEffect(() => {
     if (!selectedMarker) return;
 
-    fetch(`http://localhost:3000/api/ecobarrios/${selectedMarker.e.id}/solutions`)
+    fetch(`${import.meta.env.VITE_API_URL}/${selectedMarker.e.id}/solutions`)
       .then((res) => res.json())
       .then(data => setSolutions(data))
       .catch((error) => console.error('Error fetching solutions:', error));

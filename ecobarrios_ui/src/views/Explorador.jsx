@@ -14,7 +14,7 @@ function Explorador() {
   console.log(filters)
     useEffect(() => {
       const fetchEcobarrios = async() =>{
-        const response = await fetch('http://localhost:3000/api/ecobarrios',{
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/ecobarrios`,{
           method: 'POST',
           headers: { 'Content-Type' : 'application/json' },
           body: JSON.stringify(filters),

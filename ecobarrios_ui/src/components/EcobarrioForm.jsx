@@ -25,7 +25,6 @@ function EcobarrioForm() {
         ubicacion: ""
     }]
   });
-
   const [error,setError] = useState({});
 
   const estados = [
@@ -89,8 +88,13 @@ function EcobarrioForm() {
       newErrors.lineasAccion = "Debes seleccionar al menos una línea de acción para el ecobarrio";
     }
 
-    if(!data.estado || data.estado.length == 0){
+    if(!data.estado || data.estado.length === 0){
       newErrors.estado = "Debes seleccionar al menos un estado de consolidación para el ecobarrio"
+    }
+
+    const desafios_filtrados = data.desafios.filter(d => Object.values(d).some(valor => valor.trim() !== ""))
+    if(!desafios_filtrados || desafios_filtrados.length === 0){
+      newErrors.desafios = "Debes agregar almenos un desafío para este ecobarrio"
     }
 
     return newErrors;
@@ -157,7 +161,7 @@ function EcobarrioForm() {
     }
 
     setError({}); 
-    const res = await fetch("http://localhost:3000/api/ecobarrios/create", {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/ecobarrios/create`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -203,6 +207,7 @@ function EcobarrioForm() {
       </Section>
       
       <Section title="Desafío/s planteados">
+      {error.desafios && <p className = "error">{error.desafios}</p>}
         {data.desafios.map((desafio, i) => (
             <div key={i} className="desafio-block">
             <InputText
