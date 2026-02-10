@@ -1,4 +1,5 @@
 import prisma from "../../lib/prisma.js";
+import schema from "../validators/ecobarrio.schema.js"
 
 export const getAllEcobarrios = async (req,res) => {
   try {
@@ -112,7 +113,8 @@ export const getEcobarrios = async (req, res) => {
 
 export const createEcobarriosyDesafios = async (req,res) => {
   try{
-    const data = req.body;
+    const data = schema.parse(req.body)
+
     const nuevo_ecobarrio_desafio = await prisma.Ecobarrio.create({
       data:{
         nombre: data.nombre,
