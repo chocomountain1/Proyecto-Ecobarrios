@@ -1,0 +1,141 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  url      = env("DATABASE_URL")
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Ecobarrio{
+  id  Int @id @default(autoincrement())
+  nombre  String @unique
+  comuna  String
+  lat    Float
+  lon    Float
+  maps    String?
+  nombre_contacto   String?
+  telefono_contacto   String?
+  correo_contacto     String?
+  linea_de_accion     String
+  sendero_ecobarrio   String
+  desafios  Desafio[]
+}
+
+model Desafio{
+  id Int @id @default(autoincrement())
+  titulo        String?
+  desc          String?
+  ubicacion     String?
+  afectados     String?
+  ecobarrioId   Int
+  ecobarrio   Ecobarrio @relation(fields: [ecobarrioId], references: [id], onDelete:Cascade)
+  problemas   Problema[]
+  ods         ODS[]
+}
+
+model Problema{
+  id  Int @id @default(autoincrement())
+  usuarios  String?
+  clientes  String?
+  descripcion   String?
+  desafioId   Int
+  desafio   Desafio @relation(fields: [desafioId], references: [id], onDelete:Cascade)
+  ods         ODS[]
+  equipos_desarrolladores   Equipo_desarrollador[]
+  soluciones  Solucion[]
+}
+
+model Solucion{
+  id  Int @id @default(autoincrement())
+  propuesta_solucion  String?
+  nombre_proyecto     String?
+  TRL                 Int?
+  grado_innovacion    String?
+  SRL                 Int?
+  url                 String?
+  problemaId          Int @unique
+  problema            Problema @relation(fields: [problemaId], references: [id], onDelete:Cascade)
+  sustentabilidad     Sustentabilidad[]
+}
+
+model ODS{
+  id  Int @id @default(autoincrement())
+  nombre      String
+
+  problemas   Problema[]
+  desafios    Desafio[]
+  secciones   Seccion[]
+  sustentabilidad Sustentabilidad[]
+}
+
+model Sustentabilidad{
+  solucionId  Int 
+  odsId       Int 
+  impacto     String?
+  intensidad  Int?
+  alcance     String?
+  profundidad String?
+  riesgo      String?
+
+  solucion    Solucion @relation(fields: [solucionId], references: [id])
+  ods         ODS @relation(fields: [odsId], references: [id])
+
+  @@id([solucionId, odsId])
+}
+
+model Equipo_desarrollador{
+  id  Int @id @default(autoincrement())
+  numero      Int?
+  nombre      String?
+  problemaId  Int @unique
+  problema    Problema @relation(fields: [problemaId], references: [id])
+  seccionId   Int @unique
+  seccion     Seccion @relation(fields: [seccionId], references: [id])
+  estudiantes Estudiante[]
+}
+
+model Estudiante{
+  id  Int @id @default(autoincrement())
+  nombre  String?
+  equipo_desarrolladorId  Int
+  equipo_desarrollador Equipo_desarrollador @relation(fields: [equipo_desarrolladorId], references: [id])
+}
+
+model Seccion{
+  id  Int @id @default(autoincrement())
+  numero              Int
+  titulo              String?
+  desafio_principal   String?
+  profesor_a_cargo    String
+  anio                 Int
+  equipos             Equipo_desarrollador[]
+  rutas               Ruta_tematica[]
+  ods                 ODS[]
+  cursoId             Int
+  curso               Curso @relation(fields: [cursoId], references: [id])
+}
+
+model Ruta_tematica{
+  id    Int @id @default(autoincrement())
+  ruta_tematica         String
+  departamentos         String?
+  centros               String?
+  cursos_relacionados   String?
+  secciones             Seccion[]
+}
+
+model Curso{
+  id    Int @id @default(autoincrement())
+  nombre        String
+  codigo        String
+  impartido_en  String?
+  secciones     Seccion[]
+}
