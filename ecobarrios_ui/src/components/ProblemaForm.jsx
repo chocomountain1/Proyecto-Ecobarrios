@@ -11,7 +11,7 @@ function ProblemaForm() {
   const [desafios, setDesafios] = useState([]);
 
   useEffect(() => {
-        fetch(`${import.meta.env.VITE_API_URL}api/ecobarrios/sinFiltros`).then(r => r.json()).then(data => setEcobarrios(data));},[]);
+        fetch(`${import.meta.env.VITE_API_URL}/api/ecobarrios/sinFiltros`).then(r => r.json()).then(data => setEcobarrios(data));},[]);
 
   const [data, setData] = useState({
     usuarios: "",
