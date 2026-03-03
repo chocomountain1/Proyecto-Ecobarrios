@@ -9,7 +9,7 @@ export default function SolutionModal({ isOpen, onClose, children, solution}) {
     useEffect(() => {
         if (!isOpen || !solution?.id) return;
         
-        fetch(`http://localhost:3000/api/ecobarrios/${solution.id}/problem`)
+        fetch(`${import.meta.env.VITE_API_URL}/${solution.id}/problem`)
         .then((res) => res.json())
         .then(data => setProblem(data))
         .catch((error) => console.error('Error fetching problem:', error));
