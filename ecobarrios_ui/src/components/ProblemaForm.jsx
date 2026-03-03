@@ -11,7 +11,7 @@ function ProblemaForm() {
   const [desafios, setDesafios] = useState([]);
 
   useEffect(() => {
-        fetch('http://localhost:3000/api/ecobarrios/sinFiltros').then(r => r.json()).then(data => setEcobarrios(data));},[]);
+        fetch(`${import.meta.env.VITE_API_URL}api/ecobarrios/sinFiltros`).then(r => r.json()).then(data => setEcobarrios(data));},[]);
 
   const [data, setData] = useState({
     usuarios: "",
@@ -51,7 +51,7 @@ function ProblemaForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch("http://localhost:3000/api/ecobarrios/problemas/create", {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/ecobarrios/problemas/create`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -73,7 +73,7 @@ function ProblemaForm() {
         onChange={e => {
           const id = e.target.value;
 
-          fetch(`http://localhost:3000/api/ecobarrios/${id}/desafios`)
+          fetch(`${import.meta.env.VITE_API_URL}/api/ecobarrios/${id}/desafios`)
             .then(r => r.json())
             .then(setDesafios);
         }}

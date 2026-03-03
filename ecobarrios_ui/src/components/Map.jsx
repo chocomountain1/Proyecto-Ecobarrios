@@ -34,7 +34,7 @@ export default function Map({ ecobarrios, setFilters }) {
   useEffect(() => {
     if (!selectedMarker) return;
 
-    fetch(`${import.meta.env.VITE_API_URL}/${selectedMarker.e.id}/solutions`)
+    fetch(`${import.meta.env.VITE_API_URL}/api/ecobarrios/${selectedMarker.e.id}/solutions`)
       .then((res) => res.json())
       .then(data => setSolutions(data))
       .catch((error) => console.error('Error fetching solutions:', error));
